@@ -74,4 +74,62 @@ const getHotelBySlug = async (req, res) => {
     }
 };
 
+// const getHotelBySlug = async (req, res) => {
+//     console.log('Fetching hotel details and room information by slug...');
+//     const { slug } = req.params;
+
+//     try {
+//         const query = `
+//             SELECT 
+//                 hd.id, hd.slug, hd.title, hd.description, hd.images,
+//                 hd.amenities, hd.host_name, hd.host_image, hd.host_email, hd.host_phone,
+//                 hd.address, hd.latitude, hd.longitude,
+//                 ri.room_title, ri.room_image, ri.bedroom_count
+//             FROM hotel_details hd
+//             JOIN room_information ri ON hd.slug = ri.hotel_slug
+//             WHERE hd.slug = $1
+//         `;
+//         const { rows } = await pool.query(query, [slug]);
+
+//         if (rows.length === 0) {
+//             console.log(`No hotel found with slug: ${slug}`);
+//             return res.status(404).json({ error: "Hotel not found" });
+//         }
+
+//         // Prepare the response
+//         const hotelInfo = rows[0];
+//         const response = {
+//             id: hotelInfo.id,
+//             slug: hotelInfo.slug,
+//             title: hotelInfo.title,
+//             description: hotelInfo.description,
+//             images: hotelInfo.images,
+//             amenities: hotelInfo.amenities,
+//             host_name: hotelInfo.host_name,
+//             host_image: hotelInfo.host_image,
+//             host_email: hotelInfo.host_email,
+//             host_phone: hotelInfo.host_phone,
+//             address: hotelInfo.address,
+//             latitude: hotelInfo.latitude,
+//             longitude: hotelInfo.longitude,
+//             rooms: rows.map(row => ({
+//                 room_title: row.room_title,
+//                 room_image: row.room_image,
+//                 bedroom_count: row.bedroom_count
+//             }))
+//         };
+
+//         console.log(`Hotel found: ${response.title}`);
+//         console.log('Hotel images:', response.images);
+//         console.log("Type of hotel images:", typeof(response.images));
+//         console.log('Number of rooms:', response.rooms.length);
+
+//         res.json({ info: response });
+//     } catch (err) {
+//         console.error('Error fetching hotel details and room information:', err);
+//         res.status(500).json({ error: "Internal server error" });
+//     }
+// };
+
+
 module.exports = {createHotel,getHotelBySlug}

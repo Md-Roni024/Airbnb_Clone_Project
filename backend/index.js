@@ -18,12 +18,6 @@ const hotelRoutes = require("./routes/hotelRoutes.js")
 PORT = process.env.PORT || 5000
 
 
-// All Routes
-// app.use("/hotel",roomRoutes)
-app.use("/hotel",hotelRoutes)
-
-
-
 
 dbConnect()
     .then(() => {
@@ -37,8 +31,11 @@ dbConnect()
     });
 
 
-//Home Route
+// All Routes Here
 app.get("/",(req,res)=>{
     res.send("Home Route")
     res.statusCode = 200;
 })
+
+app.use("/hotel",hotelRoutes)
+app.use("/hotel",roomRoutes)
