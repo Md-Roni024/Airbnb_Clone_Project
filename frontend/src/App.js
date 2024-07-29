@@ -12,21 +12,4 @@ function App() {
   );
 }
 
-
-
-// function App() {
-//   return (
-//     <>
-//        <NavbarDesktop/>
-//        <ImageGallary/>
-//        <CheckAvailability/>
-//        <OfferSection/>
-//        <Calander/>
-//        <Review/>
-//        <MapContainer/>
-//        <HostProfile/>
-//     </>
-//   );
-// }
-
 export default App;

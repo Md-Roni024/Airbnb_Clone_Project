@@ -215,17 +215,17 @@ const Navbardesktop = () => {
                     </div>
                 </div>
             </nav>
-            <nav class="navbar-mobile">
-                <div class="navbar-mobile-left">
-                    <button class="cross-icon-button">x</button>
-                    <button class="mobile-button">🟦</button> 
+            <nav className="navbar-mobile">
+                <div className="navbar-mobile-left">
+                    <button className="cross-icon-button">x</button>
+                    <button className="mobile-button">🟦</button> 
                     <div>
                         <h4>Get the app</h4>
                         <p>The fastest,easiest way</p>
                     </div>           
                 </div>
-                <div class="navbar-mobile-right">
-                    <button class="open-app-button">USE APP</button>
+                <div className="navbar-mobile-right">
+                    <button className="open-app-button">USE APP</button>
                 </div>
             </nav>
             {showSecondNav && (
@@ -256,28 +256,28 @@ const Navbardesktop = () => {
             {showMapModal && (
                     <div id="map-modal" ref={mapModalRef}>
                     <h3>Search by region</h3>
-                    <div class="region-grid">
-                        <div class="region-item" data-region="I'm flexible" onClick={handleRegionClick}>
+                    <div className="region-grid">
+                        <div className="region-item" data-region="I'm flexible" onClick={handleRegionClick}>
                             <img src={img2} alt="I'm flexible"/>
                             <p>I'm flexible</p>
                         </div>
-                        <div class="region-item" data-region="Southeast Asia"onClick={handleRegionClick}>
+                        <div className="region-item" data-region="Southeast Asia"onClick={handleRegionClick}>
                             <img src={img2} alt="Southeast Asia"/>
                             <p>Southeast Asia</p>
                         </div>
-                        <div class="region-item" data-region="Canada"onClick={handleRegionClick}>
+                        <div className="region-item" data-region="Canada"onClick={handleRegionClick}>
                             <img src={img2} alt="Canada"/>
                             <p>Canada</p>
                         </div>
-                        <div class="region-item" data-region="Europe"onClick={handleRegionClick}>
+                        <div className="region-item" data-region="Europe"onClick={handleRegionClick}>
                             <img src={img2} alt="Europe"/>
                             <p>Europe</p>
                         </div>
-                        <div class="region-item" data-region="Thailand"onClick={handleRegionClick}>
+                        <div className="region-item" data-region="Thailand"onClick={handleRegionClick}>
                             <img src={img2} alt="Thailand"/>
                             <p>Thailand</p>
                         </div>
-                        <div class="region-item" data-region="Middle East"onClick={handleRegionClick}>
+                        <div className="region-item" data-region="Middle East"onClick={handleRegionClick}>
                             <img src={img2} alt="Middle East"/>
                             <p>Middle East</p>
                         </div>
@@ -286,48 +286,48 @@ const Navbardesktop = () => {
             )}
             {showDateModal && (
                 <div id="date-picker-modal" ref={dateModalRef}>
-                    <div class="date-picker-header">
+                    <div className="date-picker-header">
                         <h3>Select dates</h3>
                         <button id="close-date-picker">✕</button>
                     </div>
-                    <div class="date-picker-tabs">
-                        <div class="date-picker-tab active">Dates</div>
-                        <div class="date-picker-tab">Months</div>
-                        <div class="date-picker-tab">Flexible</div>
+                    <div className="date-picker-tabs">
+                        <div className="date-picker-tab active">Dates</div>
+                        <div className="date-picker-tab">Months</div>
+                        <div className="date-picker-tab">Flexible</div>
                     </div>
-                    <div class="calendars">
-                        <div class="calendar">
-                            <div class="calendar-header">
-                                <button class="prev-month"onClick={handlePrevMonth}>←</button>
+                    <div className="calendars">
+                        <div className="calendar">
+                            <div className="calendar-header">
+                                <button className="prev-month"onClick={handlePrevMonth}>←</button>
                                 <h4 id="month1">
                                 {currentDate.toLocaleString('default', { month: 'long', year: 'numeric' })}
                                 </h4>
-                                <button class="next-month"onClick={handleNextMonth}>→</button>
+                                <button className="next-month"onClick={handleNextMonth}>→</button>
                             </div>
-                            <div class="calendar-grid" id="calendar1">
+                            <div className="calendar-grid" id="calendar1">
                             {generateCalendar(currentDate.getFullYear(), currentDate.getMonth())}
                             </div>
                         </div>
-                        <div class="calendar">
-                            <div class="calendar-header">
-                                <button class="prev-month"onClick={handlePrevMonth}>←</button>
+                        <div className="calendar">
+                            <div className="calendar-header">
+                                <button className="prev-month"onClick={handlePrevMonth}>←</button>
                                 <h4 id="month2">
                                 {new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1)
                                         .toLocaleString('default', { month: 'long', year: 'numeric' })}
                                 </h4>
-                                <button class="next-month"onClick={handleNextMonth}>→</button>
+                                <button className="next-month"onClick={handleNextMonth}>→</button>
                             </div>
-                            <div class="calendar-grid" id="calendar2">
+                            <div className="calendar-grid" id="calendar2">
                             {generateCalendar(currentDate.getFullYear(), currentDate.getMonth() + 1)}
                             </div>
                         </div>
                     </div>
-                    <div class="date-range-options">
-                        <div class="date-range-option">Exact dates</div>
-                        <div class="date-range-option">± 1 day</div>
-                        <div class="date-range-option">± 2 days</div>
-                        <div class="date-range-option">± 3 days</div>
-                        <div class="date-range-option">± 7 days</div>
+                    <div className="date-range-options">
+                        <div className="date-range-option">Exact dates</div>
+                        <div className="date-range-option">± 1 day</div>
+                        <div className="date-range-option">± 2 days</div>
+                        <div className="date-range-option">± 3 days</div>
+                        <div className="date-range-option">± 7 days</div>
                     </div>
                 </div>
             )}

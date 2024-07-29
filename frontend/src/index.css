@@ -205,6 +205,9 @@ body {
     .offer-items{
         margin: 25px 10px;
     }
+    .offer-items .items{
+        font-size: 15px;
+    }
     .offer-items h1{
         font-size: 20px;
     }
@@ -317,15 +320,15 @@ body {
     .map-container .show-more{
         display: none;
     }
-    .image-grid .show-all-photos-btn {
+    .show-all-photos-btn {
         position: absolute;
-        right: 2%;
-        bottom: 12%;
+        right: 8%;
+        bottom: 8%;
         background-color: white;
         border: none;
         border-radius: 2px;
         cursor: pointer;
-        width: 30%;
+        width: 25%;
         height: 12%;
     }
     .footer-container .column p{
@@ -341,30 +344,31 @@ body {
     .rental-summary p{
         line-height: normal;
     }
+
     
 }
 @media screen and (min-width: 656px){
     body .navbar-mobile{
         display: none;
     }
+    .show-all-photos-btn {
+        position: absolute;
+        right: 14%;
+        bottom: 33%;
+        background-color: white;
+        border: none;
+        border-radius: 2px;
+        cursor: pointer;
+        width: 15%;
+        height: 5%;
+    }
+
     .image-gallary-icon-up{
         display: none;
     }
     .image-gallary-icon{
         display: flex;
         justify-content: flex-end;
-    }
-    .image-grid .show-all-photos-btn {
-        margin: auto 0;
-        position: absolute;
-        right: 11%;
-        bottom: 12%;
-        background-color: white;
-        border: none;
-        border-radius: 2px;
-        cursor: pointer;
-        width: 12%;
-        padding: 10px 10px;
     }
     .container .image-gallary .image-gallary-icon .left{
         margin-top: 20px;

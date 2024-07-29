@@ -22,8 +22,6 @@ const createHotel = async (req, res) => {
   }
 }
 
-
-
 const getHotelBySlug = async (req, res) => {
     console.log('Fetching hotel details by slug...');
     const { slug } = req.params;
@@ -32,7 +30,7 @@ const getHotelBySlug = async (req, res) => {
         const query = `
             SELECT id, slug, title, description, images, 
                    guest_count, bedroom_count, bathroom_count, 
-                   amenities, host_name,host_image, host_email, host_phone, 
+                   amenities, host_name, host_image, host_email, host_phone, 
                    address, latitude, longitude
             FROM hotel_details 
             WHERE slug = $1
@@ -46,7 +44,13 @@ const getHotelBySlug = async (req, res) => {
 
         const hotel = rows[0];
         console.log(`Hotel found: ${hotel.title}`);
-        console.log('image:',hotel.host_image)
+        console.log('Image:', hotel.host_image);
+
+        // If images or amenities are stored as JSON strings in the database
+        // Uncomment and use JSON.parse if necessary:
+        // hotel.images = JSON.parse(hotel.images);
+        // hotel.amenities = JSON.parse(hotel.amenities);
+
         const response = {
             id: hotel.id,
             slug: hotel.slug,
@@ -58,21 +62,75 @@ const getHotelBySlug = async (req, res) => {
             bathroom_count: hotel.bathroom_count,
             amenities: hotel.amenities,
             host_name: hotel.host_name,
-            host_image:hotel.host_image,
+            host_image: hotel.host_image,
             host_email: hotel.host_email,
             host_phone: hotel.host_phone,
             address: hotel.address,
             latitude: hotel.latitude,
             longitude: hotel.longitude
         };
-        console.log(hotel.images)
-        console.log("Type is:",typeof(hotel.images))
-        res.json({info:response});
+
+        console.log(hotel.images);
+        console.log("Type is:", typeof(hotel.images));
+        res.json(response);
     } catch (err) {
         console.error('Error fetching hotel details:', err);
         res.status(500).json({ error: "Internal server error" });
     }
 };
+
+
+
+
+// const getHotelBySlug = async (req, res) => {
+//     console.log('Fetching hotel details by slug...');
+//     const { slug } = req.params;
+
+//     try {
+//         const query = `
+//             SELECT id, slug, title, description, images, 
+//                    guest_count, bedroom_count, bathroom_count, 
+//                    amenities, host_name,host_image, host_email, host_phone, 
+//                    address, latitude, longitude
+//             FROM hotel_details 
+//             WHERE slug = $1
+//         `;
+//         const { rows } = await pool.query(query, [slug]);
+
+//         if (rows.length === 0) {
+//             console.log(`No hotel found with slug: ${slug}`);
+//             return res.status(404).json({ error: "Hotel not found" });
+//         }
+
+//         const hotel = rows[0];
+//         console.log(`Hotel found: ${hotel.title}`);
+//         console.log('image:',hotel.host_image)
+//         const response = {
+//             id: hotel.id,
+//             slug: hotel.slug,
+//             title: hotel.title,
+//             description: hotel.description,
+//             images: hotel.images,
+//             guest_count: hotel.guest_count,
+//             bedroom_count: hotel.bedroom_count,
+//             bathroom_count: hotel.bathroom_count,
+//             amenities: hotel.amenities,
+//             host_name: hotel.host_name,
+//             host_image:hotel.host_image,
+//             host_email: hotel.host_email,
+//             host_phone: hotel.host_phone,
+//             address: hotel.address,
+//             latitude: hotel.latitude,
+//             longitude: hotel.longitude
+//         };
+//         console.log(hotel.images)
+//         console.log("Type is:",typeof(hotel.images))
+//         res.json(response);
+//     } catch (err) {
+//         console.error('Error fetching hotel details:', err);
+//         res.status(500).json({ error: "Internal server error" });
+//     }
+// };
 
 // const getHotelBySlug = async (req, res) => {
 //     console.log('Fetching hotel details and room information by slug...');

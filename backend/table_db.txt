@@ -2,9 +2,13 @@ CREATE TABLE room_information (
     id SERIAL PRIMARY KEY,
     hotel_slug VARCHAR(255) REFERENCES hotel_details(slug),
     room_slug VARCHAR(255) NOT NULL,
-    room_image TEXT,
     room_title VARCHAR(255) NOT NULL,
+    room_image TEXT,
+    description TEXT,
     bedroom_count INTEGER,
+    bath_count INTEGER,
+    price INTEGER,
+    guest_count INTEGER,
     UNIQUE (hotel_slug, room_slug)
 );
 
