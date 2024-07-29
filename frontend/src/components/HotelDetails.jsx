@@ -23,7 +23,7 @@ function HotelDetails() {
     const fetchHotelData = async () => {
       try {
         setLoading(true);
-        await new Promise(resolve => setTimeout(resolve, 3000));//Delay for Shimmer Effect
+        await new Promise(resolve => setTimeout(resolve, 3000));//Delay for Shimmer effect
 
         const hotelResponse = await fetch(`http://localhost:8000/hotel/${slug}`);
         const roomsResponse = await fetch(`http://localhost:8000/hotel/${slug}/rooms`);
@@ -67,11 +67,12 @@ function HotelDetails() {
       <NavbarDesktop />
       <ImageGallery imagesUrl={hotel.images} title={hotel.title} />
       <CheckAvailability 
+        name={hotel.host_name}
+        image={hotel.host_image}
         guestCount={hotel.guest_count} 
         bedroomCount={hotel.bedroom_count} 
         bathroomCount={hotel.bathroom_count}
-        name={hotel.host_name}
-        image={hotel.host_image}
+        hotelDescription = {hotel.description}
       />
       <Rooms room={rooms} hotelSlug={slug} />
       <OfferSection amenities={hotel.amenities} />

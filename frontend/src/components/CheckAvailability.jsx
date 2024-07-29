@@ -2,12 +2,12 @@ import React from 'react';
 import './CheckAvailability.css';
 import img2 from './2.png';
 
-const CheckAvailability = ({name,image,bedroom, bathroom, guest}) => {
+const CheckAvailability = ({name,image,guestCount,bedroomCount,bathroomCount,hotelDescription}) => {
   return (
     <div className="check-availability">
       <div className="host-onboard">
         <h2>Entire rental unit in Lima, Peru</h2>
-        <p className="details">{guest} guests · {bedroom} bedroom · 1 bed · {bathroom} bath</p>
+        <p className="details">{guestCount} guests · {bedroomCount} bedroom · {bathroomCount} bath</p>
         <p><span className="new-tag">★ New</span></p>
         <hr className="divider-2" />
         <div className="host-info">
@@ -38,11 +38,12 @@ const CheckAvailability = ({name,image,bedroom, bathroom, guest}) => {
         <div className="translation-notice">
           Some info has been automatically translated. <a href="#" className="show-original">Show original</a>
         </div>
-        <p className="description">
+        {/* <p className="description">
           Welcome to our brand-new 1 bedroom apartment, in a quiet and central location next to a park!
-        </p>
+        </p> */}
         <p className="description">
           It's conveniently located in Pueblo Libre, just 25min. away from the airport. Steps away from Clinica Stella Maris, Universidad Antonio Ruiz de Montoya, Instituto Británico, Hospital Santa Rosa, YMCA Peru and Alas Peruanas University. It's also very close to La ...
+          {hotelDescription}
         </p>
         <a href="#" className="show-more">Show more</a>
         <hr className="divider-2" />
